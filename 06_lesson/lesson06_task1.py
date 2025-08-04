@@ -19,7 +19,4 @@ message = WebDriverWait(driver, 20).until(
     )
 print(message.text.strip())
 
-
-sleep(5)
-
 driver.quit()
