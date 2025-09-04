@@ -27,7 +27,7 @@ class StudentTable:
         try:
             conn.execute(self.__scripts["create_table"])
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
         conn.close()
@@ -35,21 +35,24 @@ class StudentTable:
     def drop_table(self):
         conn = self.__db.connect()
         trans = conn.begin()
+
         try:
+
             conn.execute(self.__scripts["drop_table"])
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
-        conn.close()
+            conn.close()
 
     def drop_old_table(self):
         conn = self.__db.connect()
         trans = conn.begin()
         try:
+
             conn.execute(self.__scripts["drop_old_table"])
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
         conn.close()
@@ -60,7 +63,7 @@ class StudentTable:
         try:
             conn.execute(self.__scripts["insert"], {"name": name, "email": email})
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
         conn.close()
@@ -78,7 +81,7 @@ class StudentTable:
         try:
             conn.execute(self.__scripts["update_name"], {"email": email, "new_name": new_name})
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
         conn.close()
@@ -89,7 +92,7 @@ class StudentTable:
         try:
             conn.execute(self.__scripts["delete_by_email"], {"email": email})
             trans.commit()
-        except:
+        except Exception:
             trans.rollback()
             raise
         conn.close()
