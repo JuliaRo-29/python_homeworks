@@ -1,6 +1,6 @@
 import pytest
 import uuid
-from models.student_table import StudentTable
+from models.student_table import models_student_table
 
 
 # Дбавления студента

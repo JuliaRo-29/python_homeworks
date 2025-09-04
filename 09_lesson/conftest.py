@@ -1,5 +1,5 @@
 import pytest
-from models.student_table import StudentTable
+from models.student_table import models_student_table
 
 
 DATABASE_URL = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
